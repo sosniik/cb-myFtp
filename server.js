@@ -18,14 +18,12 @@ const server = net.createServer((socket) => {
     const [directive, parameter] = data.toString().split(' ')
     let rawdata = fs.readFileSync('id.json');
     let student = JSON.parse(rawdata);
-//console.log(student)
+
 
     switch(directive) {
         case 'USER':
-            
             let ok = Boolean
             ok = 0
-
             student.forEach(element => {
                 let verif = element["username"]
                 if(verif == parameter){
@@ -86,7 +84,7 @@ const server = net.createServer((socket) => {
             }else{
                 socket.write("You don't have the permission")
             }
-            break
+            break;
 
         case 'RETR':
 
@@ -135,13 +133,16 @@ const server = net.createServer((socket) => {
             break;
 
         case 'QUIT':
-            server.close();
-            console.log('Server closed!');
+            console.log('Server exit')
+            socket.write('Server disconnected'+process.exit())
+            process.exit()
+            
+           
+          
             break;
     }
   })
 
- // socket.write('Hello from server')
 })
 
 server.listen(PORT, () => {
@@ -150,9 +151,3 @@ server.listen(PORT, () => {
 
 
 
-/*student.forEach(element => {
-                    if(element.student == parameter){
-                        socket.write("connected")
-                    }else{
-                        socket.write("notconnected")
-                    }*/

@@ -20,11 +20,3 @@ client.on('data', (data) => {
     console.log(data.toString());
 })
 
-/*
-    rl.question('Enter your username :', (input) =>{
-        client.write('USER '+input);
-    });
-    rl.question("give password :",(input) =>{
-        client.write('password'+input)
-    });
-      */
