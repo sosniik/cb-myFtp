@@ -1,5 +1,19 @@
-
+[
     {
         "username":"Jean",
-        "password":"sisilafamille"
+        "password":"mdp1"
+    },
+    {
+        "username":"leo",
+        "password":"mdp2"
+    },
+    {
+        "username":"herve",
+        "password":"mdp3"
+    },
+    {
+        "username":"joan",
+        "password":"mdp4"
     }
+
+]
