@@ -4,6 +4,7 @@ const readline = require('readline');
 const { ENGINE_METHOD_DIGESTS, ENETUNREACH } = require('constants');
 const { exit } = require('process');
 const PORT = process.argv[2]
+let userundif = 0
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -19,7 +20,7 @@ const server = net.createServer((socket) => {
     let rawdata = fs.readFileSync('id.json');
     let student = JSON.parse(rawdata);
 
-
+console.log(userundif)
     switch(directive) {
         case 'USER':
             let ok = Boolean
@@ -28,6 +29,8 @@ const server = net.createServer((socket) => {
                 let verif = element["username"]
                 if(verif == parameter){
                      ok = true
+                     socket.userundif = userundif + 1
+                     console.log(socket.userundif)
                 }});            
             
                 if(ok){
@@ -41,6 +44,8 @@ const server = net.createServer((socket) => {
             break;
 
         case 'PASS':
+            console.log(userundif)
+            if(socket.userundif == 1 ){
             let result = student.filter(e => e.username == socket.username)
                 let ok1 = Boolean
                 ok1 = 0
@@ -58,6 +63,9 @@ const server = net.createServer((socket) => {
                 else {
                     socket.write('Password not ok ')
                 }
+            }else {
+                socket.write("Please enter your username before")
+            }
             break;
 
         case 'LIST':
@@ -134,7 +142,7 @@ const server = net.createServer((socket) => {
 
         case 'QUIT':
             console.log('Server exit')
-            socket.write('Server disconnected'+process.exit())
+            socket.write('Server disconnected')
             process.exit()
             
            
