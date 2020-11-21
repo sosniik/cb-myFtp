@@ -7,7 +7,7 @@ The default PORT is 5000 but you can change if you want
 The IP is 127.0.0.1, you don't change this.
 
 
-USER <username>: check if the user exist\n
+USER <username>: check if the user exist
 PASS <password>: authenticate the user with a password
 LIST: list the current directory of the server
 CWD <directory>: change the current directory of the server
