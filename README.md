@@ -1,9 +1,9 @@
 # cb-myFtp
 When you start your server and client, please respect :
 
-  node myFtpServer.js <port>
+    • node myFtpServer.js <port>
   
-  node myFtpClient.js <host> <port>
+    • node myFtpClient.js <host> <port>
   
 The default PORT is 5000 but you can change if you want.
 The IP is 127.0.0.1, you don't change this.
