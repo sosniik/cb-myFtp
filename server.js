@@ -44,7 +44,6 @@ console.log(userundif)
             break;
 
         case 'PASS':
-            console.log(userundif)
             if(socket.userundif == 1 ){
             let result = student.filter(e => e.username == socket.username)
                 let ok1 = Boolean
@@ -95,7 +94,6 @@ console.log(userundif)
             break;
 
         case 'RETR':
-
             if(socket.verifpass == true){
               fs.readFile(`${parameter}`, 'utf8' , (err, data) => {
                 if (err) {
@@ -144,9 +142,6 @@ console.log(userundif)
             console.log('Server exit')
             socket.write('Server disconnected')
             process.exit()
-            
-           
-          
             break;
     }
   })
