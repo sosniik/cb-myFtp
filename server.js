@@ -56,6 +56,7 @@ console.log(userundif)
                 });
                 if(ok1){
                     socket.write('Password ok\nWELCOME '+ socket.username)
+                    socket.directory = "./";
                     socket.username = parameter
                     socket.verifpass = true
                 }
@@ -69,7 +70,7 @@ console.log(userundif)
 
         case 'LIST':
             if(socket.verifpass == true){
-                fs.readdir('/Users/leolemercier/Documents/cours_efrei/cb-myFtp', (err, files) => {
+                fs.readdir(socket.directory, (err, files) => {
                     if(err) return console.error(err);
                     socket.write(files.join('\n'));
                 });
